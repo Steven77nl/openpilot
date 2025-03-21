@@ -9,7 +9,7 @@ from openpilot.common.params import Params
 from openpilot.common.realtime import config_realtime_process, Priority, Ratekeeper
 from openpilot.common.swaglog import cloudlog
 
-from opendbc.car.car_helpers import get_car_interface
+from opendbc.car.car_helpers import interfaces
 from opendbc.car.vehicle_model import VehicleModel
 from openpilot.selfdrive.controls.lib.drive_helpers import clip_curvature
 from openpilot.selfdrive.controls.lib.latcontrol import LatControl, MIN_LATERAL_CONTROL_SPEED
@@ -37,7 +37,7 @@ class Controls:
     self.CP_SP = messaging.log_from_bytes(self.params.get("CarParamsSP", block=True), custom.CarParamsSP)
     cloudlog.info("controlsd got CarParamsSP")
 
-    self.CI = get_car_interface(self.CP, self.CP_SP)
+    self.CI = interfaces[self.CP.carFingerprint](self.CP, self.CP_SP)
 
     self.sm = messaging.SubMaster(['liveParameters', 'liveTorqueParameters', 'modelV2', 'selfdriveState',
                                    'liveCalibration', 'livePose', 'longitudinalPlan', 'carState', 'carOutput',
@@ -55,11 +55,11 @@ class Controls:
     self.VM = VehicleModel(self.CP)
     self.LaC: LatControl
     if self.CP.steerControlType == car.CarParams.SteerControlType.angle:
-      self.LaC = LatControlAngle(self.CP, self.CI)
+      self.LaC = LatControlAngle(self.CP, self.CP_SP, self.CI)
     elif self.CP.lateralTuning.which() == 'pid':
-      self.LaC = LatControlPID(self.CP, self.CI)
+      self.LaC = LatControlPID(self.CP, self.CP_SP, self.CI)
     elif self.CP.lateralTuning.which() == 'torque':
-      self.LaC = LatControlTorque(self.CP, self.CI)
+      self.LaC = LatControlTorque(self.CP, self.CP_SP, self.CI)
 
   def update(self):
     self.sm.update(15)
@@ -84,6 +84,8 @@ class Controls:
       if self.sm.all_checks(['liveTorqueParameters']) and torque_params.useParams:
         self.LaC.update_live_torque_params(torque_params.latAccelFactorFiltered, torque_params.latAccelOffsetFiltered,
                                            torque_params.frictionCoefficientFiltered)
+
+      self.LaC.extension.update_model_v2(self.sm['modelV2'])
 
     long_plan = self.sm['longitudinalPlan']
     model_v2 = self.sm['modelV2']

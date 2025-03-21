@@ -160,15 +160,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Toyota: Auto Brake Hold</source>
+        <source>Error Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Toyota: Enhanced BSM</source>
-        <translation type="unfinished"></translation>
+        <source>VIEW</source>
+        <translation type="unfinished">VOIR</translation>
     </message>
     <message>
-        <source>Toyota: custom tune</source>
+        <source>View the error log for sunnypilot crashes.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
