@@ -127,6 +127,7 @@ inline static std::unordered_map<std::string, uint32_t> keys = {
     {"CarParamsSPPersistent", PERSISTENT},
     {"CarPlatformBundle", PERSISTENT},
     {"EnableGithubRunner", PERSISTENT | BACKUP},
+    {"LatTorqueControlEnhancedLateralAccel", PERSISTENT | BACKUP},
     {"ModelRunnerTypeCache", CLEAR_ON_ONROAD_TRANSITION},
     {"OffroadMode", CLEAR_ON_MANAGER_START},
     {"OffroadMode_Status", CLEAR_ON_MANAGER_START},
@@ -142,6 +143,9 @@ inline static std::unordered_map<std::string, uint32_t> keys = {
     {"ModelManager_DownloadIndex", CLEAR_ON_MANAGER_START | CLEAR_ON_ONROAD_TRANSITION},
     {"ModelManager_LastSyncTime", CLEAR_ON_MANAGER_START | CLEAR_ON_OFFROAD_TRANSITION},
     {"ModelManager_ModelsCache", PERSISTENT | BACKUP},
+
+    // Neural Network Lateral Control
+    {"NeuralNetworkLateralControl", PERSISTENT | BACKUP},
 
     // sunnylink params
     {"EnableSunnylinkUploader", PERSISTENT | BACKUP},

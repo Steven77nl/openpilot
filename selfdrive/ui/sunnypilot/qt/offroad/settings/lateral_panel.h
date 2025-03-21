@@ -12,6 +12,7 @@
 
 #include "selfdrive/ui/sunnypilot/ui.h"
 #include "selfdrive/ui/sunnypilot/qt/offroad/settings/lateral/mads_settings.h"
+#include "selfdrive/ui/sunnypilot/qt/offroad/settings/lateral/neural_network_lateral_control.h"
 #include "selfdrive/ui/qt/util.h"
 #include "selfdrive/ui/sunnypilot/qt/offroad/settings/settings.h"
 #include "selfdrive/ui/sunnypilot/qt/widgets/scrollview.h"
@@ -28,6 +29,7 @@ public slots:
   void updateToggles(bool _offroad);
 
 private:
+  Params params;
   QStackedLayout* main_layout = nullptr;
   QWidget* sunnypilotScreen = nullptr;
   ScrollViewSP *sunnypilotScroller = nullptr;
@@ -37,4 +39,6 @@ private:
   ParamControl *madsToggle;
   PushButtonSP *madsSettingsButton;
   MadsSettings *madsWidget = nullptr;
+  NeuralNetworkLateralControl *nnlcToggle = nullptr;
+  ParamControl *latControlTorqueCustomLatAccel = nullptr;
 };
