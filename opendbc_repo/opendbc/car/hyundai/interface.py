@@ -153,7 +153,7 @@ class CarInterface(CarInterfaceBase):
       # https://github.com/commaai/openpilot/wiki/Tuning
 
       #ret.steerRatio = 13.3
-      ret.steerActuatorDelay = 0.15
+      ret.steerActuatorDelay = 0.2
       # ret.steerRateCost = 0.5
 
       #ret.lateralTuning.pid.kpBP = [14.0, 24.0, 34.0]    # 14 = 50.4 km/h, 23 = 82.8 kmh, 34 = 122.4 km/h  (plan to tune these speeds)
