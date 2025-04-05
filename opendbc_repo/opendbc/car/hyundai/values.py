@@ -34,7 +34,7 @@ class CarControllerParams:
 
     # Experimental KIA_NIRO_EV_2ND_GEN Params
     elif CP.carFingerprint in (CAR.KIA_NIRO_EV_2ND_GEN):
-      self.STEER_MAX = 270        # as seen as car max with PlotJuggler
+      self.STEER_MAX = 384        # 270 seen as car max with PlotJuggler, but HyundaiFlags.CANFD is not matching, so should end up with 384 (final else). I'm not sure
       self.STEER_DELTA_UP = 4     # increase +1
       self.STEER_DELTA_DOWN = 9   # increase +2
 
