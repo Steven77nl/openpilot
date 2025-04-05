@@ -153,18 +153,18 @@ class CarInterface(CarInterfaceBase):
       # https://github.com/commaai/openpilot/wiki/Tuning
 
       #ret.steerRatio = 13.3
-      ret.steerActuatorDelay = 0.2
+      ret.steerActuatorDelay = 0.15
       # ret.steerRateCost = 0.5
 
-      #ret.lateralTuning.pid.kpBP = [14.0, 24.0, 34.0]    # 14 = 50.4 km/h, 23 = 82.8 kmh, 34 = 122.4 km/h  (plan to tune these speeds)
-      #ret.lateralTuning.pid.kiBP = [14.0, 24.0, 34.0]    # 14 = 50.4 km/h, 23 = 82.8 kmh, 34 = 122.4 km/h  (plan to tune these speeds)
+      ret.lateralTuning.pid.kpBP = [11.0, 34.0]    # 11 = 39.6 km/h, 34 = 122.4 km/h  (plan to tune at these speeds)
+      ret.lateralTuning.pid.kiBP = [11.0, 34.0]    # 11 = 39.6 km/h, 34 = 122.4 km/h  (plan to tune at these speeds)
           # kpBP and kiBP are generally identical.
           # The breakpoint units are meters/s and apply to the vehicle speed.
           # Most cars only have two BPs - a low speed and a high speed (41 m/s is about 90 mph for example).
           # The purpose of these tuning arrays is to tweak the proportional and integral gain based on vehicle speed.
 
-      #ret.lateralTuning.pid.kpV = [1.0, 1.0, 1.0]        # 1.0 from PlotJuggler before tuning
-      #ret.lateralTuning.pid.kiV = [0.1, 0.1, 0.1]        # 0.1 from PlotJuggler before tuning
+      ret.lateralTuning.pid.kpV = [1.0, 1.0]        # 1.0 from PlotJuggler before tuning
+      ret.lateralTuning.pid.kiV = [0.1, 0.1]        # 0.1 from PlotJuggler before tuning
           # kpV and kiV are gain applied to the output of the I and P calculation,
           # which is a scale of 0 to +-1, 0 being no torque, +-1 being 100% of available torque in either direction.
           # This is a gross simplification, but should help get the rough idea.
