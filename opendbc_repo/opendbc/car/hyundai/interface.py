@@ -152,26 +152,29 @@ class CarInterface(CarInterfaceBase):
     if candidate == CAR.KIA_NIRO_EV_2ND_GEN:
       # https://github.com/commaai/openpilot/wiki/Tuning
 
-      #ret.steerRatio = 13.3
       ret.steerActuatorDelay = 0.15
       # ret.steerRateCost = 0.5
+      # ret.steerRatio = 13.3
 
       ret.lateralTuning.init('pid')
 
       ret.lateralTuning.pid.kpBP = [11., 34.]     # 11 = 39.6 km/h, 34 = 122.4 km/h  (plan to tune at these speeds)
       ret.lateralTuning.pid.kiBP = [11., 34.]     # 11 = 39.6 km/h, 34 = 122.4 km/h  (plan to tune at these speeds)
+
           # kpBP and kiBP are generally identical.
           # The breakpoint units are meters/s and apply to the vehicle speed.
           # Most cars only have two BPs - a low speed and a high speed (41 m/s is about 90 mph for example).
           # The purpose of these tuning arrays is to tweak the proportional and integral gain based on vehicle speed.
 
-      ret.lateralTuning.pid.kpV = [1., 1.]        # 1.0 from PlotJuggler before tuning
-      ret.lateralTuning.pid.kiV = [0.1, 0.1]      # 0.1 from PlotJuggler before tuning
+      ret.lateralTuning.pid.kpV = [0.2, 0.2]        # 0.2 from KisaPilot Tune PID_A
+      ret.lateralTuning.pid.kiV = [0.05, 0.05]      # 0.05 from KisaPilot Tune PID_A
+
           # kpV and kiV are gain applied to the output of the I and P calculation,
           # which is a scale of 0 to +-1, 0 being no torque, +-1 being 100% of available torque in either direction.
           # This is a gross simplification, but should help get the rough idea.
 
-      ret.lateralTuning.pid.kf = 0.00002          # 1.0 from PlotJuggler before tuning, but tunnign example shows 0.00001
+      ret.lateralTuning.pid.kf = 0.00003         # 0.00003 from KisaPilot Tune PID_A
+
           # Feedforward is the part of the steering controller that only cares about the desired steering angle (how sharp the curve is).
           # So feedforward only comes into play in curves when the desired steering angle is non-zero, and the greater the angle, the greater the feedforward response, which is scaled by kf.
           # To tune kf, you observe if OpenPilot enters curves too early/late and rides curves too far inside/outside.
