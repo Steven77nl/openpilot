@@ -158,22 +158,22 @@ class CarInterface(CarInterfaceBase):
 
       ret.lateralTuning.init('pid')
 
-      ret.lateralTuning.pid.kpBP = [10., 20., 40.]     #  11 = 39.6 km/h, 34 = 122.4 km/h  (plan to tune at these speeds)
-      ret.lateralTuning.pid.kiBP = [10., 20., 40.]     # 11 = 39.6 km/h, 34 = 122.4 km/h  (plan to tune at these speeds)
+      ret.lateralTuning.pid.kpBP = [10., 35.]     # 10 = 36 km/h, 20 = 72 km/h, 35 = 126 km/h
+      ret.lateralTuning.pid.kiBP = [10., 35.]     # 10 = 36 km/h, 20 = 72 km/h, 35 = 126 km/h
 
           # kpBP and kiBP are generally identical.
           # The breakpoint units are meters/s and apply to the vehicle speed.
           # Most cars only have two BPs - a low speed and a high speed (41 m/s is about 90 mph for example).
           # The purpose of these tuning arrays is to tweak the proportional and integral gain based on vehicle speed.
 
-      ret.lateralTuning.pid.kpV = [0.2, 0.2, 0.1]        # 0.2 from KisaPilot Tune PID_A, + less aggressive lane change at higher sppeds
-      ret.lateralTuning.pid.kiV = [0.05, 0.05, 0.05]      # 0.05 from KisaPilot Tune PID_A
+      ret.lateralTuning.pid.kpV = [0.25, 0.15]      # 0.2 from KisaPilot Tune PID_A, + testing less aggressive lane change at higher speeds
+      ret.lateralTuning.pid.kiV = [0.05, 0.05]      # 0.05 from KisaPilot Tune PID_A
 
           # kpV and kiV are gain applied to the output of the I and P calculation,
           # which is a scale of 0 to +-1, 0 being no torque, +-1 being 100% of available torque in either direction.
           # This is a gross simplification, but should help get the rough idea.
 
-      ret.lateralTuning.pid.kf = 0.00003         # 0.00003 from KisaPilot Tune PID_A
+      ret.lateralTuning.pid.kf = 0.00003            # 0.00003 from KisaPilot Tune PID_A
 
           # Feedforward is the part of the steering controller that only cares about the desired steering angle (how sharp the curve is).
           # So feedforward only comes into play in curves when the desired steering angle is non-zero, and the greater the angle, the greater the feedforward response, which is scaled by kf.
