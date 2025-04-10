@@ -152,9 +152,9 @@ class CarInterface(CarInterfaceBase):
     if candidate == CAR.KIA_NIRO_EV_2ND_GEN:
       # https://github.com/commaai/openpilot/wiki/Tuning
 
-      ret.steerActuatorDelay = 0.15
-      ret.steerRatio = 13.3
-      # ret.steerRateCost = 0.5
+      ret.steerActuatorDelay = 0.2
+      ret.steerRatio = 14.1
+      ret.steerRateCost = 0.5
 
       ret.lateralTuning.init('pid')
 
