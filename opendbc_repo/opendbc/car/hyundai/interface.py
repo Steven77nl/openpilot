@@ -153,8 +153,8 @@ class CarInterface(CarInterfaceBase):
       # https://github.com/commaai/openpilot/wiki/Tuning
 
       ret.steerActuatorDelay = 0.2
-      ret.steerRatio = 14.1
-      ret.steerRateCost = 0.5
+      ret.steerRatio = 14.0                           # 13.3 (car value) + 5%
+      ret.steerRateCost = 0.5                         # improve the sluggish response
 
       ret.lateralTuning.init('pid')
 
