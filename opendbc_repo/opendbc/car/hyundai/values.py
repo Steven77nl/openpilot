@@ -420,7 +420,7 @@ class CAR(Platforms):
   )
   KIA_NIRO_EV_2ND_GEN = HyundaiCanFDPlatformConfig(
     [HyundaiCarDocs("Kia Niro EV 2023-24", "All", car_parts=CarParts.common([CarHarness.hyundai_a]))],
-    CarSpecs(mass=1739, wheelbase=2.72, steerRatio=13.3, tireStiffnessFactor=0.385),  # https://www.evspecifications.com/en/comparison/afe35ff1
+    CarSpecs(mass=1739, wheelbase=2.72, steerRatio=13.95, tireStiffnessFactor=0.385),  # https://www.evspecifications.com/en/comparison/afe35ff1
     flags=HyundaiFlags.EV,
   )
   KIA_NIRO_PHEV = HyundaiPlatformConfig(
