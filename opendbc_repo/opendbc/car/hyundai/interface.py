@@ -158,8 +158,8 @@ class CarInterface(CarInterfaceBase):
 
       ret.lateralTuning.init('pid')
 
-      ret.lateralTuning.pid.kpBP = [4., 17., 32.]     # 4 = 14.4 km/h, 17 = 61.2 km/h, 35 = 115.2 km/h
-      ret.lateralTuning.pid.kiBP = [4., 17., 32.]     # 4 = 14.4 km/h, 17 = 61.2 km/h, 35 = 115.2 km/h
+      ret.lateralTuning.pid.kpBP = [4., 16., 32.]     # 4 = 14.4 km/h, 17 = 57.6 km/h, 35 = 115.2 km/h
+      ret.lateralTuning.pid.kiBP = [4., 16., 32.]     # 4 = 14.4 km/h, 17 = 57.6 km/h, 35 = 115.2 km/h
 
           # kpBP and kiBP are generally identical.
           # The breakpoint units are meters/s and apply to the vehicle speed.
