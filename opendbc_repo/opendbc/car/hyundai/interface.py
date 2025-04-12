@@ -173,7 +173,7 @@ class CarInterface(CarInterfaceBase):
           # which is a scale of 0 to +-1, 0 being no torque, +-1 being 100% of available torque in either direction.
           # This is a gross simplification, but should help get the rough idea.
 
-      ret.lateralTuning.pid.kf = 0.00006              # 0.00006 from KisaPilot Tune PID_C
+      ret.lateralTuning.pid.kf = 0.00007              # 0.00006 from KisaPilot Tune PID_C
 
           # Feedforward is the part of the steering controller that only cares about the desired steering angle (how sharp the curve is).
           # So feedforward only comes into play in curves when the desired steering angle is non-zero, and the greater the angle, the greater the feedforward response, which is scaled by kf.
