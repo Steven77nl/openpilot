@@ -158,16 +158,16 @@ class CarInterface(CarInterfaceBase):
 
       ret.lateralTuning.init('pid')
 
-      ret.lateralTuning.pid.kpBP = [4., 16., 32.]     # 4 = 14.4 km/h, 17 = 57.6 km/h, 35 = 115.2 km/h
-      ret.lateralTuning.pid.kiBP = [4., 16., 32.]     # 4 = 14.4 km/h, 17 = 57.6 km/h, 35 = 115.2 km/h
+      ret.lateralTuning.pid.kpBP = [4., 8., 16., 32.]     # 4 = 14.4 km/h, 8 = 28.8 km/h, 16 = 57.6 km/h, 32 = 115.2 km/h
+      ret.lateralTuning.pid.kiBP = [4., 8., 16., 32.]     # 4 = 14.4 km/h, 8 = 28.8 km/h, 16 = 57.6 km/h, 32 = 115.2 km/h
 
           # kpBP and kiBP are generally identical.
           # The breakpoint units are meters/s and apply to the vehicle speed.
           # Most cars only have two BPs - a low speed and a high speed (41 m/s is about 90 mph for example).
           # The purpose of these tuning arrays is to tweak the proportional and integral gain based on vehicle speed.
 
-      ret.lateralTuning.pid.kpV = [0.6, 0.4, 0.2]     # 0.2 from KisaPilot Tune PID_A, 0.6 from KisaPilot Tune_C (more aggressive turns at lower speeds, less aggressive lane change at higher speeds)
-      ret.lateralTuning.pid.kiV = [0.08, 0.06, 0.03]   # 0.05 from KisaPilot Tune PID_A, 0.1 from KisaPilot Tune_C (allow for quicker turns at low speed, less overcorrecting at higher speeds)
+      ret.lateralTuning.pid.kpV = [0.6, 0.6, 0.4, 0.2]     # 0.2 from KisaPilot Tune PID_A, 0.6 from KisaPilot Tune_C (more aggressive turns at lower speeds, less aggressive lane change at higher speeds)
+      ret.lateralTuning.pid.kiV = [0.08, 0.08, 0.06, 0.03]   # 0.05 from KisaPilot Tune PID_A, 0.1 from KisaPilot Tune_C (allow for quicker turns at low speed, less overcorrecting at higher speeds)
 
           # kpV and kiV are gain applied to the output of the I and P calculation,
           # which is a scale of 0 to +-1, 0 being no torque, +-1 being 100% of available torque in either direction.
