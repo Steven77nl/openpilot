@@ -166,14 +166,14 @@ class CarInterface(CarInterfaceBase):
           # Most cars only have two BPs - a low speed and a high speed (41 m/s is about 90 mph for example).
           # The purpose of these tuning arrays is to tweak the proportional and integral gain based on vehicle speed.
 
-      ret.lateralTuning.pid.kpV = [0.6,  0.6,  0.4,  0.15]    # 0.2 from KisaPilot Tune PID_A, 0.6 from KisaPilot Tune_C (more aggressive turns at lower speeds, less aggressive lane change at higher speeds)
-      ret.lateralTuning.pid.kiV = [0.02, 0.02, 0.04, 0.08]   # 0.05 from KisaPilot Tune PID_A, 0.1 from KisaPilot Tune_C (allow for quicker turns at low speed, less overcorrecting at higher speeds)
+      ret.lateralTuning.pid.kpV = [0.5,  0.5,  0.4,  0.15]    # 0.2 from KisaPilot Tune PID_A, 0.6 from KisaPilot Tune_C (more aggressive turns at lower speeds, less aggressive lane change at higher speeds)
+      ret.lateralTuning.pid.kiV = [0.03, 0.03, 0.04, 0.06]   # 0.05 from KisaPilot Tune PID_A, 0.1 from KisaPilot Tune_C (allow for quicker turns at low speed, less overcorrecting at higher speeds)
 
           # kpV and kiV are gain applied to the output of the I and P calculation,
           # which is a scale of 0 to +-1, 0 being no torque, +-1 being 100% of available torque in either direction.
           # This is a gross simplification, but should help get the rough idea.
 
-      ret.lateralTuning.pid.kf = 0.00008                     # 0.00006 from KisaPilot Tune PID_C
+      ret.lateralTuning.pid.kf = 0.00007                     # 0.00006 from KisaPilot Tune PID_C
 
           # Feedforward is the part of the steering controller that only cares about the desired steering angle (how sharp the curve is).
           # So feedforward only comes into play in curves when the desired steering angle is non-zero, and the greater the angle, the greater the feedforward response, which is scaled by kf.
