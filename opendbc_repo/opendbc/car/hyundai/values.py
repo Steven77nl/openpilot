@@ -31,12 +31,18 @@ class CarControllerParams:
       self.STEER_THRESHOLD = 250
       self.STEER_DELTA_UP = 2
       self.STEER_DELTA_DOWN = 3
+      self.STEER_THRESHOLD = 150
 
-    # Experimental KIA_NIRO_EV_2ND_GEN Params
+    # Experimental KIA_NIRO_EV_2ND_GEN Params (compared to defaults)
     elif CP.carFingerprint in (CAR.KIA_NIRO_EV_2ND_GEN):
-      self.STEER_MAX = 270        # 270 seen as car max with PlotJuggler. HyundaiFlags.CANFD is not matching, so would end up with 384 (final else).
-      self.STEER_DELTA_UP = 4     # increase 1
-      self.STEER_DELTA_DOWN = 8   # increase 1
+      self.STEER_DELTA_UP = 4           # increased 1
+      self.STEER_DELTA_DOWN = 8         # increased 1
+      self.STEER_DRIVER_ALLOWANCE = 100 # increased 50
+      self.STEER_DRIVER_MULTIPLIER = 2
+      self.STEER_DRIVER_FACTOR = 1
+      self.STEER_THRESHOLD = 150
+      self.STEER_MAX = 260              # 270 seen as car max with PlotJuggler
+      self.STEER_STEP = 1               # 100 Hz
 
     # To determine the limit for your car, find the maximum value that the stock LKAS will request.
     # If the max stock LKAS request is <384, add your car to this list.
