@@ -151,8 +151,8 @@ class CarInterface(CarInterfaceBase):
     if candidate == CAR.KIA_OPTIMA_G4_FL:
       ret.steerActuatorDelay = 0.2
 
-    # Work in progress - tuning my EV 2ND GEN 2024
     if candidate == CAR.KIA_NIRO_EV_2ND_GEN:
+      # Work in progress - tuning my EV 2ND GEN 2024
       # https://github.com/commaai/openpilot/wiki/Tuning
 
       ret.steerActuatorDelay = 0.18
