@@ -41,7 +41,7 @@ class CarControllerParams:
       self.STEER_DRIVER_MULTIPLIER = 2
       self.STEER_DRIVER_FACTOR = 1
       self.STEER_THRESHOLD = 150
-      self.STEER_MAX = 260              # 270 seen as car max with PlotJuggler
+      self.STEER_MAX = 384              # try 384 again, but 270 seen as car max with PlotJuggler
       self.STEER_STEP = 1               # 100 Hz
 
     # To determine the limit for your car, find the maximum value that the stock LKAS will request.
