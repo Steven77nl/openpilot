@@ -41,7 +41,7 @@ class CarControllerParams:
       self.STEER_DRIVER_MULTIPLIER = 2  # Unchanged
       self.STEER_DRIVER_FACTOR = 1      # Unchanged
       self.STEER_THRESHOLD = 150        # Unchanged
-      self.STEER_MAX = 384              # # Unchanged, default for most HKG
+      self.STEER_MAX = 384              # Unchanged, default for most HKG
       self.STEER_STEP = 1               # Unchanged, 100 Hz
 
     # To determine the limit for your car, find the maximum value that the stock LKAS will request.
