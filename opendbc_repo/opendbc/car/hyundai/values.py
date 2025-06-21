@@ -35,14 +35,14 @@ class CarControllerParams:
 
     # Experimental KIA_NIRO_EV_2ND_GEN Params (compared to defaults)
     elif CP.carFingerprint in (CAR.KIA_NIRO_EV_2ND_GEN):
-      self.STEER_DELTA_UP = 4           # increased 1
-      self.STEER_DELTA_DOWN = 8         # increased 1
+      self.STEER_DELTA_UP = 5           # increased 2
+      self.STEER_DELTA_DOWN = 9         # increased 2
       self.STEER_DRIVER_ALLOWANCE = 100 # increased 50
-      self.STEER_DRIVER_MULTIPLIER = 2
-      self.STEER_DRIVER_FACTOR = 1
-      self.STEER_THRESHOLD = 150
-      self.STEER_MAX = 384              # try 384 again, but 270 seen as car max with PlotJuggler
-      self.STEER_STEP = 1               # 100 Hz
+      self.STEER_DRIVER_MULTIPLIER = 2  # Unchanged
+      self.STEER_DRIVER_FACTOR = 1      # Unchanged
+      self.STEER_THRESHOLD = 150        # Unchanged
+      self.STEER_MAX = 384              # # Unchanged, default for most HKG
+      self.STEER_STEP = 1               # Unchanged, 100 Hz
 
     # To determine the limit for your car, find the maximum value that the stock LKAS will request.
     # If the max stock LKAS request is <384, add your car to this list.
