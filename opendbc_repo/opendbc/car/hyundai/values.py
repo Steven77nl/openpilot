@@ -35,12 +35,12 @@ class CarControllerParams:
 
     # Experimental KIA_NIRO_EV_2ND_GEN Params (compared to defaults)
     elif CP.carFingerprint in (CAR.KIA_NIRO_EV_2ND_GEN):
-      self.STEER_DELTA_UP = 5           # increased 2
-      self.STEER_DELTA_DOWN = 9         # increased 2
-      self.STEER_DRIVER_ALLOWANCE = 100 # increased 50
+      self.STEER_DELTA_UP = 6           # increased 3
+      self.STEER_DELTA_DOWN = 10        # increased 3
+      self.STEER_DRIVER_ALLOWANCE = 120 # increased 70
       self.STEER_DRIVER_MULTIPLIER = 2  # Unchanged
       self.STEER_DRIVER_FACTOR = 1      # Unchanged
-      self.STEER_THRESHOLD = 150        # Unchanged
+      self.STEER_THRESHOLD = 130        # decreased 20
       self.STEER_MAX = 384              # Unchanged, default for most HKG
       self.STEER_STEP = 1               # Unchanged, 100 Hz
 

@@ -155,16 +155,16 @@ class CarInterface(CarInterfaceBase):
       # Work in progress - tuning my EV 2ND GEN 2024
       # https://github.com/commaai/openpilot/wiki/Tuning
 
-      ret.steerActuatorDelay = 0.17
+      ret.steerActuatorDelay = 0.18
 
       ret.lateralTuning.init('pid')
       ret.lateralTuning.pid.kf = 0.000067                    # 0.00006 from KisaPilot Tune PID_C
 
-      ret.lateralTuning.pid.kpBP = [0., 8., 16., 32.]        # 4 = 14.4 km/h, 8 = 28.8 km/h, 16 = 57.6 km/h, 32 = 115.2 km/h
-      ret.lateralTuning.pid.kiBP = [0., 8., 16., 32.]        # 4 = 14.4 km/h, 8 = 28.8 km/h, 16 = 57.6 km/h, 32 = 115.2 km/h
+      ret.lateralTuning.pid.kpBP = [0., 4., 8., 16., 32.]       # 4 = 14.4 km/h, 8 = 28.8 km/h, 16 = 57.6 km/h, 32 = 115.2 km/h
+      ret.lateralTuning.pid.kiBP = [0., 4., 8., 16., 32.]       # 4 = 14.4 km/h, 8 = 28.8 km/h, 16 = 57.6 km/h, 32 = 115.2 km/h
 
-      ret.lateralTuning.pid.kpV = [0.4, 0.4, 0.3, 0.2]      # 0.2 from KisaPilot Tune PID_A, 0.6 from KisaPilot Tune_C (more aggressive turns at lower speeds, less aggressive lane change at higher speeds)
-      ret.lateralTuning.pid.kiV = [0.07, 0.07, 0.08, 0.09]    # 0.05 from KisaPilot Tune PID_A, 0.1 from KisaPilot Tune_C (allow for quicker turns at low speed, less overcorrecting at higher speeds)
+      ret.lateralTuning.pid.kpV = [0.6, 0.5, 0.4, 0.3, 0.2]     # 0.2 from KisaPilot Tune PID_A, 0.6 from KisaPilot Tune_C (more aggressive turns at lower speeds, less aggressive lane change at higher speeds)
+      ret.lateralTuning.pid.kiV = [0.1, 0.09, 0.08, 0.07, 0.06] # 0.05 from KisaPilot Tune PID_A, 0.1 from KisaPilot Tune_C (allow for quicker turns at low speed, less overcorrecting at higher speeds)
 
 
     # Dashcam cars are missing a test route, or otherwise need validation
