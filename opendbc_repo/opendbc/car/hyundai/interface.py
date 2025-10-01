@@ -163,8 +163,8 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpBP = [0., 4., 8., 16., 32.]       # 4 = 14.4 km/h, 8 = 28.8 km/h, 16 = 57.6 km/h, 32 = 115.2 km/h
       ret.lateralTuning.pid.kiBP = [0., 4., 8., 16., 32.]       # 4 = 14.4 km/h, 8 = 28.8 km/h, 16 = 57.6 km/h, 32 = 115.2 km/h
 
-      ret.lateralTuning.pid.kpV = [0.7, 0.55, 0.4, 0.3, 0.2]     # 0.2 from KisaPilot Tune PID_A, 0.6 from KisaPilot Tune_C (more aggressive turns at lower speeds, less aggressive lane change at higher speeds)
-      ret.lateralTuning.pid.kiV = [0.15, 0.12, 0.10, 0.08, 0.06] # 0.05 from KisaPilot Tune PID_A, 0.1 from KisaPilot Tune_C (allow for quicker turns at low speed, less overcorrecting at higher speeds)
+      ret.lateralTuning.pid.kpV = [0.5, 0.5, 0.4, 0.3, 0.2]     # 0.2 from KisaPilot Tune PID_A, 0.6 from KisaPilot Tune_C (more aggressive turns at lower speeds, less aggressive lane change at higher speeds)
+      ret.lateralTuning.pid.kiV = [0.1, 0.1, 0.10, 0.08, 0.06] # 0.05 from KisaPilot Tune PID_A, 0.1 from KisaPilot Tune_C (allow for quicker turns at low speed, less overcorrecting at higher speeds)
 
     # Dashcam cars are missing a test route, or otherwise need validation
     # TODO: Optima Hybrid 2017 uses a different SCC12 checksum
